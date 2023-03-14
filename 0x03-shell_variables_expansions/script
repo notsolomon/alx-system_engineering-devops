@@ -1,0 +1,10 @@
+#!/bin/bash
+for file in *
+do
+  if [ -f "$file" ] && [ ! -s "$file" ]
+  then
+    echo "#!/bin/bash" > "$file.temp"
+    cat "$file" >> "$file.temp"
+    mv "$file.temp" "$file"
+  fi
+done

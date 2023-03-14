@@ -1,0 +1,12 @@
+#!/bin/bash
+for file in *
+do
+  if [ -f "$file" ] && [ -x "$file" ]
+  then
+    echo "$file is already executable"
+  elif [ -f "$file" ] && [ ! -x "$file" ]
+  then
+    chmod +x "$file"
+    echo "$file is now executable"
+  fi
+done
